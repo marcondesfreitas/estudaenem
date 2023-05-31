@@ -120,7 +120,7 @@ if (isset($_SESSION['email'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>EstudaEnem</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/historia.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,38 +191,104 @@ if (isset($_SESSION['email'])) {
       </ul>
     </div>
   </header>
-    <nav class="dp-menu">
-      <ul class="ul1">
-        <li><a id="conteudo" href="" class="humanas">Humanas</a>
-          <ul>
-            <li><a id="dp-c" href="./paginas/paginas_menu/paginas/historia.php">História</a></li>
-            <li><a id="dp-c" href="paginas_menu/htmls/geografia.php">Geografia</a></li>
-            <li><a id="dp-c" href="paginas_menu/htmls/filosofia.php">Filosofia</a></li>
-            <li><a id="dp-c" href="paginas_menu/htmls/sociologia.php">Sociologia</a></li>
-          </ul>
-        <li><a id="conteudo" href="" class="natureza">Natureza</a>
-          <ul>
-            <li><a id="dp-c" href="paginas_menu/htmls/quimica.php">Quimica</a></li>
-            <li><a id="dp-c" href="paginas_menu/htmls/fisica.php">Fisica</a></li>
-            <li><a id="dp-c" href="paginas_menu/htmls/biologia.php">Biologia</a></li>
-          </ul>
-        <li><a id="conteudo" href="" class="linguagens">Linguagens</a>
-          <ul>
-            <li><a id="dp-c" href="paginas_menu/htmls/EDfisica.php">ED.Fisica</a></li>
-            <li><a id="dp-c" href="paginas_menu/htmls/portugues.php">Português</a></li>
-            <li><a id="dp-c" href="paginas_menu/htmls/artes.php">Artes</a></li>
-            <li><a id="dp-c" href="paginas_menu/htmls/ingles.php">Ingles</a>
-            <li><a id="dp-c" href="paginas_menu/htmls/espanhol.php">Espanhol</a>
-            </li>
-          </ul>
-        <li><a id="conteudo" href="paginas_menu/htmls/matematica.php" class="matematica">Matemática</a></li>
-        <li><a id="conteudo" href="https://ead.ucs.br/blog/temas-de-redacao-para-enem" class="temas">Tema de redações</a></li>
-        <li><a id="conteudo" href="https://guiadoestudante.abril.com.br/enem/prepare-se-para-o-enem-refazendo-provas-anteriores/" class="redacoes">Redações</a></li>
-        </li>
-      </ul>
-    </nav>
-  <?php include 'paginas/html/lista_posts.php'; ?>
-  <script src="./js/script.js"></script>
+  <?php 
+      
+    // Verificar se o login foi feito por um administrador
+    if (isset($_SESSION['email'])) {
+      $adminEmail = $_SESSION['email'];
+
+      // Conexão com o banco de dados (substitua os valores pelos seus próprios)
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "estudaenem";
+      $conn = mysqli_connect($servername, $username, $password, $dbname);
+      if (!$conn) {
+        die("Falha na conexão: " . mysqli_connect_error());
+      }
+
+      // Verificar se o usuário é um administrador
+      $query = "SELECT * FROM conta2 WHERE email = '$adminEmail'";
+      $result = mysqli_query($conn, $query);
+      if (!$result) {
+        die('Erro na consulta SQL: ' . mysqli_error($conn));
+      }
+
+      if (mysqli_num_rows($result) > 0) {
+        // Usuário é um administrador, exibir os posts com os botões de editar e apagar
+        $sql = "SELECT * FROM pg_index1";
+        $result = mysqli_query($conn, $sql);
+        if (!$result) {
+          die('Erro na consulta SQL: ' . mysqli_error($conn));
+        }
+
+        if (mysqli_num_rows($result) > 0) {
+          while($row = mysqli_fetch_assoc($result)) {
+            // Exibir a imagem
+            $sql = mysqli_query($conn, "SELECT imagem FROM pg_index1");
+            if (!$sql) {
+              die('Erro na consulta SQL: ' . mysqli_error($conn));
+            }
+            $imagem = $row["imagem"];
+
+            echo "<form action='./paginas/html/editar_conteudo.php' method='post' style='display:inline;'>"; // Adicionar o formulário de edição
+            echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
+            echo "<input type='submit' value='Editar' class='editarcont'>";
+            echo "</form>";
+            echo "<form action='./paginas/html/apagar_conteudos.php' method='post' style='display:inline;'>"; // Adicionar o formulário de exclusão
+            echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
+            echo "<button class='apagarcont' type='submit'>Apagar</button>";
+            echo "</form>";
+            echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
+            echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
+            echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
+            echo "<hr class='linhaa'>";
+          }
+        } else {
+          echo 'Não há posts a serem exibidos.';
+        }
+      } else {
+        // Exibir todos os posts sem os botões de editar e apagar
+      $servername = "localhost";
+      $username = "root";
+      $password = "";
+      $dbname = "estudaenem";
+      $conn = mysqli_connect($servername, $username, $password, $dbname);
+      if (!$conn) {
+        die("Falha na conexão: " . mysqli_connect_error());
+      }
+
+      $sql = "SELECT * FROM pg_index1";
+      $result = mysqli_query($conn, $sql);
+      if (!$result) {
+        die('Erro na consulta SQL: ' . mysqli_error($conn));
+      }
+
+      if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+          // Exibir a imagem
+          $sql = mysqli_query($conn, "SELECT imagem FROM pg_index1");
+          if (!$sql) {
+            die('Erro na consulta SQL: ' . mysqli_error($conn));
+          }
+          $imagem = $row["imagem"];
+
+          echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
+          echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
+          echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
+          echo "<hr class='linhaa'>";
+        }
+      } else {
+        echo 'Não há posts a serem exibidos.';
+      }
+
+      mysqli_close($conn); // fechar a conexão com o banco de dados
+      }
+
+    }
+?>
+  
+<script src="./js/script.js"></script>
 </body>
 <footer>
     <h4>ESTUDAENEM</h4>
