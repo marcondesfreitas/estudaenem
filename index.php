@@ -227,5 +227,4 @@ if (isset($_SESSION['email'])) {
 <footer>
     <h4>ESTUDAENEM</h4>
 </footer>
-<script href="js/script.js"></script>
 </html>

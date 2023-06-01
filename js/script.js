@@ -10,19 +10,22 @@ function mostraMenu2() {
 
     contador++;
 
-    if (contador === 1) {
+    if (contador == 1) {
         menu.style.animation = "aparecer 2s";
         menu.style.display = "flex";
         console.log("teste 1");
         add.style.transform = "rotate(45deg)";
-        } else if (contador === 2) {
+        } else if (contador == 2) {
         menu.style.animation = "desaparecer 2s";
         add.style.transform = "rotate(0deg)"
+
 
         menu.addEventListener("animationend", function () {
             menu.style.display = "none";
 
         });
+        location.reload();
+
 
         contador = 0;
     }
