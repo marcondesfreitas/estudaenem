@@ -288,7 +288,7 @@ if (isset($_SESSION['email'])) {
     }
 ?>
   
-<script src="./js/script.js"></script>
+<script src="../../../js/historia.js"></script>
 </body>
 <footer>
     <h4>ESTUDAENEM</h4>

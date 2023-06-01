@@ -5,6 +5,8 @@ var header = document.getElementById("header");
 var btnn = document.getElementById("botao_hambur");
 var contador = 0;
 
+console.log("teste");
+
 function mostraMenu2() {
  
 
@@ -48,13 +50,3 @@ function aparecer1() {
         }
 }
 
-// window.addEventListener('resize', function() {
-
-//     var screenWidth = window.innerWidth;
-  
-//     if (screenWidth < 768) {
-//         console.log("cllr");
-//     } else {
-//         console.log("pc");
-//     }
-//   });
