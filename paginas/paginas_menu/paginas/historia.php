@@ -162,7 +162,7 @@ if (isset($_SESSION['email'])) {
                     <fieldset id='meuMenu'>
                         <h2>ADICIONE O CONTEUDO</h2><br>
                         <div class='formulario'>
-                          <form action='./paginas/html/adicionar_post.php' enctype='multipart/form-data' method='POST'>
+                          <form action='./paginas/html/adicionar_post.php' enctype='multipart/form-data' method='POST''>
                             <input type='text' name='titulo' id='titulo' class='input_titulo' maxlength='4' placeholder='ano'><br><br>
                             <input type='text' name='subtitulo' id='subtitulo' class='input_subtitulo' placeholder='titulo'><br><br>
                             <textarea name='conteudo' id='conteudo' class='input_conteudo' placeholder='conteudo'></textarea><br><br>
