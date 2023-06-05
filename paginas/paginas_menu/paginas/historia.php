@@ -174,7 +174,6 @@ if (isset($_SESSION['email'])) {
                           </form>
                         </div>
                     </fieldset>
-                    <a href='./paginas/html/exibir_registros.php'><button onclick='mostraMenuEdital()' id='contas_btn'><img src='./img/contas.png' id='contas_img'></button></a>
                   </div>";
               }
             }
