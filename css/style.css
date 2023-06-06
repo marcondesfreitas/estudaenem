@@ -819,17 +819,15 @@ input[value="editar"] {
     height: 100vh;
     margin: 0 auto;
   }
-
-  #img_adicionar {
-    width: 50%;
-    height: 100%;
+ #img_adicionar {
+  width: 650%;
+  height: 650%;
+}
+    
+  .tudo{
+    margin-right: 45%;
   }
-
-  #btn_adicionar {
-    width: 15%;
-    margin-left: 40%;
-  }
-
+    .bt
   #casa{
     width: 25%;
     border: none;

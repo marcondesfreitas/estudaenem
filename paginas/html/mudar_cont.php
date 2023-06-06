@@ -22,6 +22,7 @@
 
 		if (mysqli_query($conn, $sql)) {
 			echo "Dados atualizados com sucesso!";
+			header(" Location: index.php");
 		} else {
 			echo "Erro ao atualizar dados: " . mysqli_error($conn);
 		}
