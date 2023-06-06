@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Atualizar os dados do post no banco de dados
-    $sql = "UPDATE pg_index1 SET titulo='$titulo', subtitulo='$subtitulo', conteudo='$conteudo' WHERE id=$id";
+    $sql = "UPDATE historia SET titulo='$titulo', subtitulo='$subtitulo', conteudo='$conteudo' WHERE id=$id";
     if (mysqli_query($conn, $sql)) {
     } else {
         echo "Erro na edição do post: " . mysqli_error($conn);
@@ -34,9 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <h1>Editar Post</h1>
-    <form action="editar_conteudo.php" method="post">
+    <form action="" method="post">
     <input type="hidden" name="id" value="<?php echo isset($_POST["id"]) ? $_POST["id"] : ''; ?>">
-        
+        <label for="titulo">Título:</label><br>
+        <input type="text" id="titulo" name="titulo" value="<?php echo isset($_POST["titulo"]) ? $_POST["titulo"] : ''; ?>"><br>
+        <label for="subtitulo">Subtítulo:</label><br>
+        <input type="text" id="subtitulo" name="subtitulo" value="<?php echo isset($_POST["subtitulo"]) ? $_POST["subtitulo"] : ''; ?>"><br>
         <label for="conteudo">Conteúdo:</label><br>
         <textarea id="conteudo" name="conteudo"><?php echo isset($_POST["conteudo"]) ? $_POST["conteudo"] : ''; ?></textarea><br>
         <input type="submit" value="Salvar">

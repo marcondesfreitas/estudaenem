@@ -7,7 +7,6 @@ body {
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
-  background-color: red;
 }
 
 
@@ -269,10 +268,10 @@ label {
 }
 
 #btn_adicionar {
-  margin-left: 80%;
+  margin-left: 65%;
   margin-top: -1.5%;
   background: none;
-  width: 8%;
+  width: 15%;
   border: none;
   cursor: pointer;
   transition: all 1s;

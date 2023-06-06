@@ -81,7 +81,7 @@ if(isset($_SESSION['email']) && isset($_SESSION['senha'])){
         echo'<fieldset id="perfil">
           <div class="mudar">
             <a href="./paginas/html/login.php" class="link">mudar de conta</a>
-            <a href="./paginas/html/login.php" ><img src="./img/logout.png" class="deslogar"></a>
+            <a href="./paginas/html/login.php" ><img src="../../../img/logout.png" class="deslogar"></a>
           </div>
         </fieldset>';
       }
@@ -158,11 +158,11 @@ if (isset($_SESSION['email'])) {
 
                 echo "
                   <div class='tudo'>
-                    <button onclick='mostraMenu2()' id='btn_adicionar'><img src='./img/add.svg' id='img_adicionar'></button></a>
+                    <button onclick='mostraMenu2()' id='btn_adicionar'><img src='../../../img/add.svg' id='img_adicionar'></button></a>
                     <fieldset id='meuMenu'>
                         <h2>ADICIONE O CONTEUDO</h2><br>
                         <div class='formulario'>
-                          <form action='./paginas/html/adicionar_post.php' enctype='multipart/form-data' method='POST''>
+                          <form action='../adicionar/add_historia.php' enctype='multipart/form-data' method='POST'>
                             <input type='text' name='titulo' id='titulo' class='input_titulo' maxlength='4' placeholder='ano'><br><br>
                             <input type='text' name='subtitulo' id='subtitulo' class='input_subtitulo' placeholder='titulo'><br><br>
                             <textarea name='conteudo' id='conteudo' class='input_conteudo' placeholder='conteudo'></textarea><br><br>
@@ -170,7 +170,7 @@ if (isset($_SESSION['email'])) {
                             <label for='arquivo'><img src='./img/adicionar-botao.png' class='add'></label>
                             <p class='texto'>Adicionar Imagem</p>
                             <input type='file' name='imagem' id='arquivo'><br>
-                            <input type='submit' value='ADICIONAR' class='btn'><br><br>
+                            <input type='submit' value='ADICIONAR' class='btn' name='adicionar'><br><br>
                           </form>
                         </div>
                     </fieldset>
@@ -184,110 +184,135 @@ if (isset($_SESSION['email'])) {
           </script>
           ";
         }else{
-          echo "<a href='./paginas/html/login.php' class='lgg'>login</a>";
+          echo "logue";
         }  
         ?>
       </ul>
     </div>
   </header>
-  <?php 
-      
-    // Verificar se o login foi feito por um administrador
-    if (isset($_SESSION['email'])) {
-      $adminEmail = $_SESSION['email'];
+    <?php // Iniciar a sessão
 
-      // Conexão com o banco de dados (substitua os valores pelos seus próprios)
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "estudaenem";
-      $conn = mysqli_connect($servername, $username, $password, $dbname);
-      if (!$conn) {
-        die("Falha na conexão: " . mysqli_connect_error());
-      }
+// Verificar se o login foi feito por um administrador
+if (isset($_SESSION['email'])) {
+  $adminEmail = $_SESSION['email'];
 
-      // Verificar se o usuário é um administrador
-      $query = "SELECT * FROM conta2 WHERE email = '$adminEmail'";
-      $result = mysqli_query($conn, $query);
-      if (!$result) {
-        die('Erro na consulta SQL: ' . mysqli_error($conn));
-      }
+  // Conexão com o banco de dados (substitua os valores pelos seus próprios)
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "estudaenem";
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  if (!$conn) {
+    die("Falha na conexão: " . mysqli_connect_error());
+  }
 
-      if (mysqli_num_rows($result) > 0) {
-        // Usuário é um administrador, exibir os posts com os botões de editar e apagar
-        $sql = "SELECT * FROM pg_index1";
-        $result = mysqli_query($conn, $sql);
-        if (!$result) {
+  // Verificar se o usuário é um administrador
+  $query = "SELECT * FROM conta2 WHERE email = '$adminEmail'";
+  $result = mysqli_query($conn, $query);
+  if (!$result) {
+    die('Erro na consulta SQL: ' . mysqli_error($conn));
+  }
+
+  if (mysqli_num_rows($result) > 0) {
+    // Usuário é um administrador, exibir os posts com os botões de editar e apagar
+    $sql = "SELECT * FROM historia";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+      die('Erro na consulta SQL: ' . mysqli_error($conn));
+    }
+
+    if (mysqli_num_rows($result) > 0) {
+      while($row = mysqli_fetch_assoc($result)) {
+        // Exibir a imagem
+        $sql = mysqli_query($conn, "SELECT imagem FROM historia");
+        if (!$sql) {
           die('Erro na consulta SQL: ' . mysqli_error($conn));
         }
+        $imagem = $row["imagem"];
 
-        if (mysqli_num_rows($result) > 0) {
-          while($row = mysqli_fetch_assoc($result)) {
-            // Exibir a imagem
-            $sql = mysqli_query($conn, "SELECT imagem FROM pg_index1");
-            if (!$sql) {
-              die('Erro na consulta SQL: ' . mysqli_error($conn));
-            }
-            $imagem = $row["imagem"];
-
-            echo "<form action='./paginas/html/editar_conteudo.php' method='post' style='display:inline;'>"; // Adicionar o formulário de edição
-            echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
-            echo "<input type='submit' value='Editar' class='editarcont'>";
-            echo "</form>";
-            echo "<form action='./paginas/html/apagar_conteudos.php' method='post' style='display:inline;'>"; // Adicionar o formulário de exclusão
-            echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
-            echo "<button class='apagarcont' type='submit'>Apagar</button>";
-            echo "</form>";
-            echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
-            echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
-            echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
-            echo "<hr class='linhaa'>";
-          }
-        } else {
-          echo 'Não há posts a serem exibidos.';
-        }
-      } else {
-        // Exibir todos os posts sem os botões de editar e apagar
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "estudaenem";
-      $conn = mysqli_connect($servername, $username, $password, $dbname);
-      if (!$conn) {
-        die("Falha na conexão: " . mysqli_connect_error());
+        echo "<form action='../editar_pg/edt_historia.php' method='post' style='display:inline;'>"; // Adicionar o formulário de edição
+        echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
+        echo "<input type='submit' value='Editar' class='editarcont'>";
+        echo "</form>";
+        echo "<form action='' method='post' style='display:inline;'>"; // Adicionar o formulário de exclusão
+        echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
+        echo "<button class='apagarcont' type='submit' name='apagar'>Apagar</button>";
+        echo "</form>";
+        echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
+        echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
+        echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
+        echo "<hr class='linhaa'>";
       }
+    } else {
+      echo 'Não há posts a serem exibidos.';
+    }
+  } else {
+    // Exibir todos os posts sem os botões de editar e apagar
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "estudaenem";
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  if (!$conn) {
+    die("Falha na conexão: " . mysqli_connect_error());
+  }
 
-      $sql = "SELECT * FROM pg_index1";
-      $result = mysqli_query($conn, $sql);
-      if (!$result) {
+  $sql = "SELECT * FROM historia";
+  $result = mysqli_query($conn, $sql);
+  if (!$result) {
+    die('Erro na consulta SQL: ' . mysqli_error($conn));
+  }
+
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      // Exibir a imagem
+      $sql = mysqli_query($conn, "SELECT imagem FROM historia");
+      if (!$sql) {
         die('Erro na consulta SQL: ' . mysqli_error($conn));
       }
+      $imagem = $row["imagem"];
 
-      if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-          // Exibir a imagem
-          $sql = mysqli_query($conn, "SELECT imagem FROM pg_index1");
-          if (!$sql) {
-            die('Erro na consulta SQL: ' . mysqli_error($conn));
-          }
-          $imagem = $row["imagem"];
-
-          echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
-          echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
-          echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
-          echo "<hr class='linhaa'>";
-        }
-      } else {
-        echo 'Não há posts a serem exibidos.';
-      }
-
-      mysqli_close($conn); // fechar a conexão com o banco de dados
-      }
-
+      echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
+      echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
+      echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
+      echo "<hr class='linhaa'>";
     }
+  } else {
+    echo 'Não há posts a serem exibidos.';
+  }
+
+  mysqli_close($conn); // fechar a conexão com o banco de dados
+  }
+
+}
+
+if (isset($_POST['apagar'])) {
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "estudaenem";
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  if (!$conn) {
+    die("Falha na conexão: " . mysqli_connect_error());
+  }
+
+  // Verificar se o ID do post foi recebido
+  if(isset($_POST['id'])) {
+    $id = $_POST['id'];
+
+    // Executar a exclusão do post no banco de dados
+    $sql = "DELETE FROM historia WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+    } else {
+      echo "Erro ao excluir o post: " . mysqli_error($conn);
+    }
+  }
+
+  mysqli_close($conn);
+}
 ?>
-  
-<script src="../../../js/historia.js"></script>
+  <script src="../../../js/historia.js"></script>
 </body>
 <footer>
     <h4>ESTUDAENEM</h4>

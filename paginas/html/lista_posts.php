@@ -46,8 +46,7 @@ if (isset($_SESSION['email'])) {
         echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
         echo "<button class='apagarcont' type='submit'>Apagar</button>";
         echo "</form>";
-        echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
-        echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
+          echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
         echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
         echo "<hr class='linhaa'>";
       }
@@ -80,7 +79,6 @@ if (isset($_SESSION['email'])) {
       }
       $imagem = $row["imagem"];
 
-      echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
       echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
       echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
       echo "<hr class='linhaa'>";
