@@ -30,9 +30,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="../../css/editar_conteudo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
     <title>Editar Post</title>
 </head>
 <body>
+<<<<<<< HEAD
+    <div class="container">
+        <h1><b>Editar Post</b></h1>
+        <form action="editar_conteudo.php" method="post">
+            <input class="inp" type="hidden" name="id" value="<?php echo isset($_POST["id"]) ? $_POST["id"] : ''; ?>">
+            <label for="titulo">Título:</label><br>
+            <input class="inp" type="text" id="titulo" name="titulo" value="<?php echo isset($_POST["titulo"]) ? $_POST["titulo"] : ''; ?>"><br><br>
+            <label for="subtitulo">Subtítulo:</label><br>
+            <input class="inp" type="text" id="subtitulo" name="subtitulo" value="<?php echo isset($_POST["subtitulo"]) ? $_POST["subtitulo"] : ''; ?>"><br><br>
+            <label id="contd" for="conteudo">Conteúdo:</label><br>
+            <textarea id="conteudo" name="conteudo"><?php echo isset($_POST["conteudo"]) ? $_POST["conteudo"] : ''; ?></textarea><br><br>
+            <input id="bnt" type="submit" value="Salvar">
+        </form>
+    </div><!--container-->
+=======
     <h1>Editar Post</h1>
     <form action="editar_conteudo.php" method="post">
     <input type="hidden" name="id" value="<?php echo isset($_POST["id"]) ? $_POST["id"] : ''; ?>">
@@ -41,5 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <textarea id="conteudo" name="conteudo"><?php echo isset($_POST["conteudo"]) ? $_POST["conteudo"] : ''; ?></textarea><br>
         <input type="submit" value="Salvar">
     </form>
+>>>>>>> 4d6895551f68bfde1cf8f0b9f71817ffc56edb1e
 </body>
 </html>

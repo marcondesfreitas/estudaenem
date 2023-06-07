@@ -1,0 +1,57 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    background: rgb(45, 164, 255);
+}
+form{
+    font-size: 20px;
+}
+.container{
+    position: absolute;
+    margin-left: 38%;
+    margin-top: 15%;
+    background: white;
+    padding: 100px;
+    border: solid 1px transparent;
+    border-radius: 30px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+input[class="inp"]{
+    margin-left: -30%;
+    padding-left: 55%;
+    border-radius: 10px;
+}
+#conteudo{
+    margin-left: 7.8%;
+    border: 1.8px solid #0000;
+    border-color: black;
+    border-radius: 10px;
+}
+label{
+    margin-left: -30%;
+}
+#bnt{
+    color: black;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 21.1%;
+    background: rgb(51, 139, 240);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+#bnt:hover{
+    font-size: 14px;
+    transition: 0.2s;
+}
+#contd{
+    margin-left: 21%;
+}

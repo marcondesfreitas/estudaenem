@@ -35,10 +35,11 @@ body{
     width: 58%;
     float: right;
     text-align: center;
-    margin-top: -42.3%;
+    margin-top: -7.7%;
     border: none;
     background: #fff;
     border-radius: 25px;
+    margin-right: 20%;
 }
 
 h1{
@@ -208,6 +209,7 @@ p{
     margin-left: 22%;
     width: 110%;
     background: rgb(13, 78, 255);
+    display: none;
 }
 
 
