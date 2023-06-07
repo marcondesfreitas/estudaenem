@@ -14,11 +14,12 @@
 <body>
     <fieldset class="fild"><br>
         <fieldset class="fild2">
-            <img src="../../img/estudaenem-logo-removebg-preview.png" width="33%" class="logoene">
+            
             <!-- <h2>Bem vindo ao nosso site!</h2>
             <h3>Crie sua conta para desfrutar 100% dos nossos recursos</h3> -->
         </fieldset>
         <fieldset class="fild3">
+        <img src="../../img/estudaenem-logo-removebg-preview (1).ico" width="33%" class="logoene">
             <h1><b>Crie sua conta</b></h1>
             <p>......................................................................................</p><br>
             <form method="post" action="../../php/db_cadastro.php" enctype="multipart/form-data">
