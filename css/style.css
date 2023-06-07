@@ -789,11 +789,12 @@ input[value="editar"] {
   z-index: 1200;
 }
 
-.link {
-  margin-top: 10%;
-  color: #ffffff;
-  text-decoration: none;
+#link{margin-top: 40%; color: black; text-decoration: none; cursor: pointer;
+  position: absolute;
 }
+
+#link:hover{ margin-left: -10%; border: solid 1px black; padding-left: 10%; 
+  padding-right: 10%; border-radius: 5px; transition: 0.2s;}
 
 .MENU_MOBILES{
   display: none;
@@ -995,6 +996,10 @@ input[value="editar"] {
   .mudar{
     margin-top: 10%;
   } 
+}
+
+#img-logout{
+  width: 10%;
 }
 
 .uls li{

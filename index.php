@@ -48,7 +48,7 @@
                   echo '<fieldset id="perfil">  
                       <div class="mudar">
                         <a href="./paginas/html/login.php" class="link">mudar de conta</a>
-                        <a href="./paginas/html/logout.php" class="deslogar"><img src="./img/logout.png"></a>
+                        <a href="./paginas/html/logout.php" class="deslogar"><img id="img-logout" src="./img/logout.png" width="100%" ></a>
                       </div>
                     </fieldset>';
               }
@@ -74,8 +74,8 @@
                   ';
                   echo '<fieldset id="perfil">
                       <div class="mudar">
-                        <a href="./paginas/html/login.php" class="link">mudar de conta</a>
-                        <a href="./paginas/html/logout.php" class="deslogar"><img src="./img/logout.png"></a>
+                        <a href="./paginas/html/login.php" id="link">mudar de conta</a>
+                        <a href="./paginas/html/logout.php" class="deslogar"><img id="img-logout" legend="Deslogar" src="./img/logout.png" width="30%" ></a>
 
                       </div>
                     </fieldset>';

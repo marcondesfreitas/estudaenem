@@ -34,10 +34,10 @@ function aparecer1() {
 
     if (contador === 1) {
         menu_hamburguer .style.display = "block";
-        menu_hamburguer.style.animation = "aparecer2 2s";
+        menu_hamburguer.style.animation = "aparecer2 1s";
 
     } else if (contador === 2) {
-        menu_hamburguer.style.animation = "desaparecer2 2s";
+        menu_hamburguer.style.animation = "desaparecer2 1s";
 
         menu_hamburguer.addEventListener("animationend", function () {
             menu_hamburguer.style.display = "none";
