@@ -35,7 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Editar Post</title>
 </head>
 <body>
-<<<<<<< HEAD
     <div class="container">
         <h1><b>Editar Post</b></h1>
         <form action="editar_conteudo.php" method="post">
@@ -49,15 +48,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input id="bnt" type="submit" value="Salvar">
         </form>
     </div><!--container-->
-=======
-    <h1>Editar Post</h1>
-    <form action="editar_conteudo.php" method="post">
-    <input type="hidden" name="id" value="<?php echo isset($_POST["id"]) ? $_POST["id"] : ''; ?>">
-        
-        <label for="conteudo">Conteúdo:</label><br>
-        <textarea id="conteudo" name="conteudo"><?php echo isset($_POST["conteudo"]) ? $_POST["conteudo"] : ''; ?></textarea><br>
-        <input type="submit" value="Salvar">
-    </form>
->>>>>>> 4d6895551f68bfde1cf8f0b9f71817ffc56edb1e
 </body>
 </html>
