@@ -1,0 +1,7 @@
+CREATE TABLE nome_da_tabela (
+  id INT PRIMARY KEY,
+  titulo VARCHAR(100),
+  subtitulo VARCHAR(100),
+  conteudo TEXT,
+  imagem BLOB
+);

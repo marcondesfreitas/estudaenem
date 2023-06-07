@@ -12,7 +12,7 @@
 <body>  
     <fieldset class="fild"><br>
         <fieldset class="fild2">
-            <img src="../../img/estudaenem-logo-removebg-preview.png" class="logoene">
+            <img src="../../img/estudaenem-logo-removebg-preview.ico" class="logoene">
             <!-- <h2>Bem vindo ao nosso site!</h2>
             <h3>Crie sua conta para desfrutar 100% dos nossos recursos</h3> -->
         </fieldset>

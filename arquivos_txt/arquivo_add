@@ -1,0 +1,44 @@
+<?php
+
+            if (mysqli_num_rows($result2) > 0) {
+              $_SESSION['email'] = $_SESSION['email'];
+              $_SESSION['senha'] = $_SESSION['senha'];
+              $_SESSION['teste2'] = mysqli_num_rows($result2);
+      
+              $sql = "SELECT * FROM conta2 WHERE email='$email'";
+              $result = mysqli_query($conn, $sql);
+              if (!$result) {
+                  die('Erro na consulta SQL: ' . mysqli_error($conn));
+              }
+      
+              if (mysqli_num_rows($result) > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    echo "
+                    <div class='tudo'>
+                      <button onclick='mostraMenu2()' id='btn_adicionar'><img src='./img/add.svg' id='img_adicionar'></button></a>
+                      <fieldset id='meuMenu'>
+                          <h2>ADICIONE O CONTEUDO</h2><br>
+                          <div class='formulario'>
+                            <form action='./paginas/html/adicionar_post.php' enctype='multipart/form-data' method='POST'>
+                              <textarea name='conteudo' id='conteudo' class='input_conteudo' placeholder='conteudo'></textarea><br><br>
+                              <input type='hidden' name='MAX_FILE_SIZE' value='99999999'><br>
+                              <label for='arquivo'><img src='./img/adicionar-botao.png' class='add'></label>
+                              <p class='texto'>Adicionar Imagem</p>
+                              <input type='file' name='imagem' id='arquivo'><br>
+                              <input type='submit' value='ADICIONAR' class='btn'><br><br>
+                            </form>
+                          </div>
+                      </fieldset>
+                      <a href='./paginas/html/exibir_registros.php'><button onclick='mostraMenuEdital()' id='contas_btn'><img src='./img/contas.png' id='contas_img'></button></a>
+                    </div>";
+                  }
+              }
+          }else if($user == 'true'){
+          echo "
+          <script>
+            console.log('usuario');
+          </script>
+          ";
+        }else{
+        }  
+        ?>
