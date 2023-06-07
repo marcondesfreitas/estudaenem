@@ -14,7 +14,7 @@ body{
 .fild{
     width: 820px;
     border-radius: 20px;
-    height: 500px;
+    height: 550px;
     margin-left: 20.5%;
     font-family: 'Open Sans', sans-serif;
     margin-top: 7%;
@@ -35,7 +35,7 @@ body{
     width: 58%;
     float: right;
     text-align: center;
-    margin-top: -7.7%;
+    margin-top: -10%;
     border: none;
     background: #fff;
     border-radius: 25px;
@@ -147,7 +147,7 @@ p{
 .bb{
     width: 40px;
     display: flex;
-    background-color: transparent;
+    background-color: green;
     border: none;
     align-items: center;
 }
@@ -217,10 +217,10 @@ a:hover{
     text-decoration: underline black;
 }
 .casaa{
-    margin-top: -4%;
+    margin-top: -10%;
     width: 5%;
     float: right;
-    margin-right: 7%;
+    margin-right: 28%;
     animation: sb 2s infinite;
 }
 
@@ -228,8 +228,43 @@ a:hover{
     0%{
         width: 5%;
     }50%{
-        width: 6%;
+        width: 5.3%;
     }100%{
         width: 5%;
     }
+}
+@media screen and (max-width: 600px) {
+
+    .fild{
+        width: 100vw;
+        border-radius: 20px;
+        height: 550px;
+        margin-left: 0px;
+        font-family: 'Open Sans', sans-serif;
+        margin-top: 35%;
+        background: rgb(13, 78, 255);
+        box-shadow: 10px 10px 30px rgb(116, 116, 116);
+        border: none;
+        padding-bottom: 20px;
+    }
+    
+    .fild .fild3{
+        width: 100vw;
+        float: right;
+        text-align: center;
+        margin-top: -10%;
+        border: none;
+        background: #fff;
+        border-radius: 25px;
+        margin-right: 20%;
+        margin-right: 0%;
+    }
+    .casaa{
+        margin-top: -20%;
+        width: 5%;
+        float: right;
+        margin-right: 5%;
+        animation: sb 2s infinite;
+    }
+
 }

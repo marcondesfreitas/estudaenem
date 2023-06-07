@@ -17,6 +17,7 @@
             <h3>Crie sua conta para desfrutar 100% dos nossos recursos</h3> -->
         </fieldset>
             <fieldset class="fild3">
+                <img src="../../../estudaenem/img/estudaenem-logo-removebg-preview (1).ico" alt="" height="100px" width="100px" >
                 <h1><b>Entre em sua conta</b></h1>
                 <p>......................................................................................</p><br>
                 <form method="post" action="../../index.php">
@@ -37,6 +38,6 @@
             </div>
         </fieldset>
         <div class="casa"><a href="../../index.html"><img src="../../img/casa.png" class="casaa" alt=""></a></div>
-    <script src="../js/cadastro.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </body>
 </html>
