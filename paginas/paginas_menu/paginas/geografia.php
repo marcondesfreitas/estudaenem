@@ -129,12 +129,64 @@ if (isset($_SESSION['email'])) {
 </head>
 <body>
   <header id="header">
+    <div class="container.logo" id="menuzinho">
+      <div class="logo.txr">
+        <button id="botao_hambur" onclick="aparecer1()"><img src="./img/hamburguer.png" width="100%"></button>
+        <a href="#" ><img id="casa" src="./img/logo_sem.png" alt=""></a>
+      </div>
+    </div>
     <div class="slrmane">
       <h6>Aqui você verá os conteúdos que já cairam no Enem!</h6>
     </div>
     <div class="menu">
       <ul>
+        <?php
         
+          if(mysqli_num_rows($result2) > 0){
+            $_SESSION['email'] = $_SESSION['email'];
+            $_SESSION['senha'] = $_SESSION['senha'];
+            $_SESSION['teste2'] = mysqli_num_rows($result2);
+
+            $sql = "SELECT * FROM conta2 WHERE email='$email'"; // Alteração aqui
+            $result = mysqli_query($conn, $sql);
+            if (!$result) {
+              die('Erro na consulta SQL: ' . mysqli_error($conn));
+            }
+
+            if (mysqli_num_rows($result) > 0) {
+              while($row = mysqli_fetch_assoc($result)) {
+
+                echo "
+                  <div class='tudo'>
+                    <button onclick='mostraMenu2()' id='btn_adicionar'><img src='../../../img/add.svg' id='img_adicionar'></button></a>
+                    <fieldset id='meuMenu'>
+                        <h2>ADICIONE O CONTEUDO</h2><br>
+                        <div class='formulario'>
+                          <form action='../adicionar/add_geografia.php' enctype='multipart/form-data' method='POST'>
+                            <input type='text' name='titulo' id='titulo' class='input_titulo' maxlength='4' placeholder='ano'><br><br>
+                            <input type='text' name='subtitulo' id='subtitulo' class='input_subtitulo' placeholder='titulo'><br><br>
+                            <textarea name='conteudo' id='conteudo' class='input_conteudo' placeholder='conteudo'></textarea><br><br>
+                            <input type='hidden' name='MAX_FILE_SIZE' value='99999999'><br>
+                            <label for='arquivo'><img src='../../../img/adicionar-botao.png' class='add'></label>
+                            <p class='texto'>Adicionar Imagem</p>
+                            <input type='file' name='imagem' id='arquivo'><br>
+                            <input type='submit' value='ADICIONAR' class='btn' name='adicionar'><br><br>
+                          </form>
+                        </div>
+                    </fieldset>
+                  </div>";
+              }
+            }
+          }else if($user == 'true'){
+          echo "
+          <script>
+            console.log('usuario');
+          </script>
+          ";
+        }else{
+          echo "logue";
+        }  
+        ?>
       </ul>
     </div>
   </header>
@@ -163,7 +215,7 @@ if (isset($_SESSION['email'])) {
 
   if (mysqli_num_rows($result) > 0) {
     // Usuário é um administrador, exibir os posts com os botões de editar e apagar
-    $sql = "SELECT * FROM historia";
+    $sql = "SELECT * FROM geografia";
     $result = mysqli_query($conn, $sql);
     if (!$result) {
       die('Erro na consulta SQL: ' . mysqli_error($conn));
@@ -172,13 +224,13 @@ if (isset($_SESSION['email'])) {
     if (mysqli_num_rows($result) > 0) {
       while($row = mysqli_fetch_assoc($result)) {
         // Exibir a imagem
-        $sql = mysqli_query($conn, "SELECT imagem FROM historia");
+        $sql = mysqli_query($conn, "SELECT imagem FROM geografia");
         if (!$sql) {
           die('Erro na consulta SQL: ' . mysqli_error($conn));
         }
         $imagem = $row["imagem"];
 
-        echo "<form action='../editar_pg/edt_historia.php' method='post' style='display:inline;'>"; // Adicionar o formulário de edição
+        echo "<form action='../editar_pg/edt_geografia.php' method='post' style='display:inline;'>"; // Adicionar o formulário de edição
         echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
         echo "<input type='submit' value='Editar' class='editarcont'>";
         echo "</form>";
@@ -205,7 +257,7 @@ if (isset($_SESSION['email'])) {
     die("Falha na conexão: " . mysqli_connect_error());
   }
 
-  $sql = "SELECT * FROM historia";
+  $sql = "SELECT * FROM geografia";
   $result = mysqli_query($conn, $sql);
   if (!$result) {
     die('Erro na consulta SQL: ' . mysqli_error($conn));
@@ -214,7 +266,7 @@ if (isset($_SESSION['email'])) {
   if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
       // Exibir a imagem
-      $sql = mysqli_query($conn, "SELECT imagem FROM historia");
+      $sql = mysqli_query($conn, "SELECT imagem FROM geografia");
       if (!$sql) {
         die('Erro na consulta SQL: ' . mysqli_error($conn));
       }
@@ -249,7 +301,7 @@ if (isset($_POST['apagar'])) {
     $id = $_POST['id'];
 
     // Executar a exclusão do post no banco de dados
-    $sql = "DELETE FROM historia WHERE id = $id";
+    $sql = "DELETE FROM geografia WHERE id = $id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
     } else {

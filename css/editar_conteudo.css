@@ -6,26 +6,38 @@
     text-decoration: none;
 }
 body{
-    background: rgb(45, 164, 255);
+    background-image: url(../img/logo_sem.png);
+    background-color: rgb(43, 89, 226);
+    background-size: 56%;
+    background-position-x: 55%;
+    background-repeat: no-repeat;
 }
 form{
     font-size: 20px;
+    opacity: 100%;
 }
 .container{
     position: absolute;
     margin-left: 38%;
     margin-top: 15%;
     background: white;
+    background-color: rgba(255, 255, 255, 0.673);
     padding: 100px;
     border: solid 1px transparent;
     border-radius: 30px;
     padding-bottom: 40px;
     padding-top: 40px;
+    transition: 0.2s;
 }
 input[class="inp"]{
     margin-left: -30%;
     padding-left: 55%;
     border-radius: 10px;
+}
+input[class="inp"]:hover,
+ #conteudo:hover{
+    border: solid 2px rgb(0, 123, 255);
+    transition: 0.2s;
 }
 #conteudo{
     margin-left: 7.8%;
@@ -41,7 +53,7 @@ label{
     padding: 5px;
     padding-left: 30px;
     padding-right: 30px;
-    margin-left: 21.1%;
+    margin-left: 23.5%;
     background: rgb(51, 139, 240);
     border: 1px solid transparent;
     border-radius: 20px;
@@ -51,6 +63,7 @@ label{
 #bnt:hover{
     font-size: 14px;
     transition: 0.2s;
+    background: rgb(33, 64, 158);
 }
 #contd{
     margin-left: 21%;

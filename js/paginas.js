@@ -5,7 +5,6 @@ var header = document.getElementById("header");
 var btnn = document.getElementById("botao_hambur");
 var contador = 0;
 
-console.log("teste");
 
 function mostraMenu2() {
  
@@ -50,3 +49,11 @@ function aparecer1() {
         }
 }
 
+window.addEventListener("scroll", function() {
+    // Verifica se houve scroll horizontal
+    if (window.scrollX !== 0) {
+      // Se houve scroll horizontal, retorna para a posição inicial
+      window.scrollTo(0, window.scrollY);
+      
+    }
+  });
