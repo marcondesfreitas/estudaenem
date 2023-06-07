@@ -163,8 +163,6 @@ if (isset($_SESSION['email'])) {
                         <h2>ADICIONE O CONTEUDO</h2><br>
                         <div class='formulario'>
                           <form action='./paginas/html/adicionar_post.php' enctype='multipart/form-data' method='POST'>
-                            <input type='text' name='titulo' id='titulo' class='input_titulo' maxlength='4' placeholder='ano'><br><br>
-                            <input type='text' name='subtitulo' id='subtitulo' class='input_subtitulo' placeholder='titulo'><br><br>
                             <textarea name='conteudo' id='conteudo' class='input_conteudo' placeholder='conteudo'></textarea><br><br>
                             <input type='hidden' name='MAX_FILE_SIZE' value='99999999'><br>
                             <label for='arquivo'><img src='./img/adicionar-botao.png' class='add'></label>
@@ -185,7 +183,7 @@ if (isset($_SESSION['email'])) {
           </script>
           ";
         }else{
-          echo "<a href='./paginas/html/login.php' class='lgg'>login</a>";
+          echo "logue";
         }  
         ?>
       </ul>
@@ -215,7 +213,12 @@ if (isset($_SESSION['email'])) {
             <li><a id="dp-c" href="paginas_menu/htmls/espanhol.php">Espanhol</a>
             </li>
           </ul>
-        <li><a id="conteudo" href="paginas_menu/htmls/matematica.php" class="matematica">Matemática</a></li>
+          <li><a id="conteudo" href="" class="linguagens">Matemática</a>
+          <ul>
+            <li><a id="dp-c" href="paginas_menu/htmls/ingles.php">Algebra</a>
+            <li><a id="dp-c" href="paginas_menu/htmls/espanhol.php">Geometria</a>
+            </li>
+          </ul>
         <li><a id="conteudo" href="https://ead.ucs.br/blog/temas-de-redacao-para-enem" class="temas">Tema de redações</a></li>
         <li><a id="conteudo" href="https://guiadoestudante.abril.com.br/enem/prepare-se-para-o-enem-refazendo-provas-anteriores/" class="redacoes">Redações</a></li>
         </li>

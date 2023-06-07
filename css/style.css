@@ -789,24 +789,6 @@ input[value="editar"] {
   z-index: 1200;
 }
 
-@media (max-width: 600px)
-{
-  #botao_hambur{
-    display: flex;
-    width: 9.5%;
-    border: none;
-    background: none;
-    cursor: pointer;
-    z-index: 1200;
-  }
-
-  #casa{
-    display: none;
-   }
-  
-}
-
-
 .link {
   margin-top: 10%;
   color: #ffffff;
@@ -832,6 +814,78 @@ input[value="editar"] {
 }
 
 @media screen and (max-width: 600px) {
+  body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+  }
+ #img_adicionar {
+  width: 650%;
+  height: 650%;
+}
+    
+  .tudo{
+    margin-right: 45%;
+  }
+    .bt
+  #casa{
+    width: 25%;
+    border: none;
+    background: none;
+    cursor: pointer;
+    z-index: 1200;
+  }
+
+  .apagarcont {
+    position: relative;
+    margin-left: 2%;
+    border: none;
+    background-color: #0062a3;
+    color: white;
+    width: 17%;
+    height: 4%;
+    border-radius: 0px;
+    transition: 1s;
+    cursor: pointer;
+  }
+  
+  .apagarcont:hover{
+    background-color: #000cb6;
+    border-width: 3px; 
+    border-style: solid; 
+    border-color:  rgb(0, 0, 0);
+  }
+
+  .editarcont {
+    position: relative;
+    margin-left: 2%;
+    background-color: #00a305;
+    color: white;
+    transition: 1s;
+    border-radius: 0px;
+    cursor: pointer;
+    width: 17%;
+    height: 4%;
+  }
+  
+  .editarcont:hover{
+    background-color: #000cb6;
+    border-style: solid; 
+    border-color:  rgb(0, 0, 0);
+  }
+
+  #ftt {
+    z-index: 1000;
+    margin-left: 83%;
+    margin-top: 0.7%;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    float: right;
+    position: absolute;
+    background-color: white;
+    cursor: pointer;
+  }
 
   .MENU_MOBILES{
     display: flex;
