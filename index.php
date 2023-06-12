@@ -43,7 +43,7 @@
               while ($row = mysqli_fetch_assoc($result)) {
                   $imagem = $row["imagem"];
 
-                  echo '<div onclick="aparecer1()" id="ftt"><img class="ftperfil" src="data:image/jpg;base64, ' . base64_encode($imagem) . '" /></div>
+                  echo '<div onclick="aparecer1()" id="ftt"><img class="ftperfil" src="./img/hamburguer.png" /></div>
                   ';
                   echo '<fieldset id="perfil">  
                       <div class="mudar">
@@ -70,22 +70,49 @@
               while ($row = mysqli_fetch_assoc($result)) {
                   $imagem = $row["imagem"];
 
-                  echo '<div id="ftt" onclick="aparecer1()"><img class="ftperfil" id="ftt2" src="data:image/jpg;base64, ' . base64_encode($imagem) . '" /></div>
+                  echo '<div onclick="aparecer1()" id="ftt"><img class="ftperfil" src="./img/hamburguer.png" /></div>
                   ';
                   echo '<fieldset id="perfil">
                       <div class="mudar">
-                        <a href="./paginas/html/login.php" id="link">mudar de conta</a>
+                        <hr class="linha1">
+                        <hr class="linha11">
+                        <h3>Opções da conta</h3>
+                        <div  id="ftt1"><img class="ftperfil1" src="data:image/jpg;base64, ' . base64_encode($imagem) . '" /></div>
+                        <a href="./paginas/html/login.php" id="link_conta">mudar de conta</a><br>
                         <a href="./paginas/html/logout.php" class="deslogar"><img id="img-logout" legend="Deslogar" src="./img/logout.png" width="30%" ></a>
+                        <hr class="linha2">
+                        <a href="./paginas/html/login.php" id="link">HISTORIA</a><br>
+                        <a href="./paginas/paginas_menu/paginas/geografia.php" id="link">GEOGRAFIA</a><br>
+                        <a href="./paginas/html/login.php" id="link"class="socio">SOCIOLOGIA</a><br>
+                        <a href="./paginas/html/login.php" id="link">FILOSOFIA</a><br>
+                        <a href="./paginas/html/login.php" id="link">QUIMICA</a><br>
+                        <a href="./paginas/html/login.php" id="link">FISICA</a><br>
+                        <a href="./paginas/html/login.php" id="link">BIOLOGIA</a><br>
+                        <a href="./paginas/html/login.php" id="link">PORTUGUES</a><br>
+                        <a href="./paginas/html/login.php" id="link">ESPANHOL</a><br>
+                        <a href="./paginas/html/login.php" id="link">INGLES</a><br>
+                        <a href="./paginas/html/login.php" id="link">ED.FISICXA</a><br>
+                        <a href="./paginas/html/login.php" id="link">ARTE</a><br>
+                        <a href="./paginas/html/login.php" id="link">ALGEBRA</a><br>
+                        <a href="./paginas/html/login.php" id="link">GEOMETRIA</a><br>
+                        
+                        <hr class="linha3">
+                        <h3 class="h3">REDAÇÃO</h3>
+                        <a href="./paginas/html/login.php" id="link">REDAÇÃO</a><br>
+                        <a href="./paginas/html/login.php" id="link">TEMA REDAÇÃO</a><br>
+                        <hr class="linha4">
 
                       </div>
                     </fieldset>';
                     echo "
                     <div class='tudo'>
                       <button onclick='mostraMenu2()' id='btn_adicionar'><img src='./img/add.svg' id='img_adicionar'></button></a>
+                      <a href='./paginas/html/exibir_registros.php'><button id='contas_btn'><img src='./img/contas.png' id='contas_img'></button></a>
                       <fieldset id='meuMenu'>
                           <h2>ADICIONE O CONTEUDO</h2><br>
                           <div class='formulario'>
                             <form action='./paginas/html/adicionar_post.php' enctype='multipart/form-data' method='POST'>
+                              <input type='text' name='subtitulo' id='subtitulo' class='input_subtitulo' placeholder='titulo' >
                               <textarea name='conteudo' id='conteudo' class='input_conteudo' placeholder='conteudo'></textarea><br><br>
                               <input type='hidden' name='MAX_FILE_SIZE' value='99999999'><br>
                               <label for='arquivo'><img src='./img/adicionar-botao.png' class='add'></label>
@@ -95,7 +122,6 @@
                             </form>
                           </div>
                       </fieldset>
-                      <a href='./paginas/html/exibir_registros.php'><button onclick='mostraMenuEdital()' id='contas_btn'><img src='./img/contas.png' id='contas_img'></button></a>
                     </div>";
 
               }
@@ -105,13 +131,17 @@
           session_destroy();
           unset($_SESSION['email']);
           unset($_SESSION['senha']);
-          echo "<a href='./paginas/html/login.php' class='lgg'>login</a>";
+          echo "<div class='btn_login'>
+            <a href='./paginas/html/login.php' class='lgg'>login</a>
+          </div>";
       }
   } else {
       session_destroy();
       unset($_SESSION['email']);
       unset($_SESSION['senha']);
-      echo "<a href='./paginas/html/login.php' class='lgg'>login</a>";
+      echo "<div class='btn_login'>
+            <a href='./paginas/html/login.php' class='lgg'>login</a>
+          </div>";
   }
 
   mysqli_close($conn);
@@ -134,7 +164,6 @@
     <header id="header">
       <div class="container.logo" id="menuzinho">
         <div class="logo.txr">
-          <button id="botao_hambur" onclick="aparecer1()"><img src="./img/hamburguer.png" width="100%"></button>
           <a href="#" ><img id="casa" src="./img/logo_sem.png" alt=""></a>
         </div>
       </div>

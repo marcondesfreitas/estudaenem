@@ -38,16 +38,21 @@ if (isset($_SESSION['email'])) {
         }
         $imagem = $row["imagem"];
 
+        echo "<div class='botoes'>";
         echo "<form action='./paginas/html/editar_conteudo.php' method='post' style='display:inline;'>"; // Adicionar o formulário de edição
         echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
         echo "<input type='submit' value='Editar' class='editarcont'>";
         echo "</form>";
         echo "<form action='./paginas/html/apagar_conteudos.php' method='post' style='display:inline;'>"; // Adicionar o formulário de exclusão
         echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
-        echo "<button class='apagarcont' type='submit'>Apagar</button>";
+        echo "<button class='apagarcont' type='submit' onclick='apagar()'>Apagar</button>";
         echo "</form>";
-          echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
+        echo "</div>";
+
+        echo "<h1>"  . $row["subtitulo"] . "</h1>";
+        echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
         echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
+        
         echo "<hr class='linhaa'>";
       }
     } else {

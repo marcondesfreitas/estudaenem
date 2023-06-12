@@ -13,5 +13,3 @@ window.addEventListener('resize', function() {
 
     }
   });
-
-  console.log("teste");

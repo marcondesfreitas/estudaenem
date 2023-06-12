@@ -12,7 +12,6 @@
 <body>  
     <fieldset class="fild"><br>
         <fieldset class="fild2">
-            <img src="../../img/estudaenem-logo-removebg-preview.ico" class="logoene">
             <!-- <h2>Bem vindo ao nosso site!</h2>
             <h3>Crie sua conta para desfrutar 100% dos nossos recursos</h3> -->
         </fieldset>
@@ -31,13 +30,9 @@
                 </form>
                 <a href="./cadastro.php">Ainda não tem sua conta? Crie a sua aqui.</a>
             </fieldset>
-            <div class="imagens">
-                <div class="googl"><img src="../../img/logogoogle.png" class="google" alt=""></div>
-                <div class="vkk"><img src="../../img/vk.png" class="vk" alt=""></div>
-                <div class="fac"><img src="../../img/logofacebook.png" class="facebook" alt=""></div>
-            </div>
         </fieldset>
         <div class="casa"><a href="../../index.html"><img src="../../img/casa.png" class="casaa" alt=""></a></div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="../../js/login.js"></script>
 </body>
 </html>

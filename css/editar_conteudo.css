@@ -6,7 +6,6 @@
     text-decoration: none;
 }
 body{
-    background-image: url(../img/logo_sem.png);
     background-color: rgb(43, 89, 226);
     background-size: 56%;
     background-position-x: 55%;
@@ -67,4 +66,22 @@ label{
 }
 #contd{
     margin-left: 21%;
+}
+
+@keyframes subir{
+    0%{
+        width: 5%;
+    }50%{
+        width: 8%;
+    }100%{
+        width: 5%;
+    }
+}
+
+.casa{
+    float: right;
+    width: 5%;
+    animation: subir 2.2s infinite linear;
+    margin-right: 5%;
+    margin-top: 40%;
 }

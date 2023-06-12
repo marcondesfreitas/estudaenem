@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../css/editar-contas.css">
     <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
     <title>Tabela de Contas</title>
     <link rel="stylesheet" href="../../css/tabela_registros.css">

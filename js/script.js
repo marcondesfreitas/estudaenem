@@ -3,17 +3,18 @@ var menu_hamburguer = document.getElementById("perfil");
 var add = document.getElementById("btn_adicionar");
 var header = document.getElementById("header");
 var btnn = document.getElementById("botao_hambur");
+var botao_mobile = document.getElementById("ftt");
+var imagem1 = new Image();
+imagem1.src = './img/casa.png';
 var contador = 0;
 
 function mostraMenu2() {
- 
 
     contador++;
 
     if (contador == 1) {
         menu.style.animation = "aparecer 2s";
         menu.style.display = "flex";
-        console.log("teste 1");
         add.style.transform = "rotate(45deg)";
         } else if (contador == 2) {
         menu.style.animation = "desaparecer 2s";
@@ -32,10 +33,10 @@ function aparecer1() {
  
     contador++;
 
+
     if (contador === 1) {
         menu_hamburguer .style.display = "block";
         menu_hamburguer.style.animation = "aparecer2 1s";
-
     } else if (contador === 2) {
         menu_hamburguer.style.animation = "desaparecer2 1s";
 
@@ -48,13 +49,10 @@ function aparecer1() {
         }
 }
 
-// window.addEventListener('resize', function() {
+function apagar(){
+    alert("conteudo apagado com sucesso");
+}
 
-//     var screenWidth = window.innerWidth;
-  
-//     if (screenWidth < 768) {
-//         console.log("cllr");
-//     } else {
-//         console.log("pc");
-//     }
-//   });
+function editar(){
+    alert("conteudo editado com sucesso");
+}

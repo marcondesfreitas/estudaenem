@@ -147,7 +147,6 @@ p{
 .bb{
     width: 40px;
     display: flex;
-    background-color: green;
     border: none;
     align-items: center;
 }

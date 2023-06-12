@@ -34,11 +34,7 @@
             </form>
             <a class="login-btn" href="./login.php">Já tem sua conta? Faça login aqui.</a>
         </fieldset>
-        <div class="imagens">
-            <div class="googl"><img src="../../img/logogoogle.png" class="google" alt=""></div>
-            <div class="vkk"><img src="../../img/vk.png" class="vk" alt=""></div>
-            <div class="fac"><img src="../../img/logofacebook.png" class="facebook" alt=""></div>
-        </div>
+        =
     </fieldset>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="../../js/cadastro.js"></script>
