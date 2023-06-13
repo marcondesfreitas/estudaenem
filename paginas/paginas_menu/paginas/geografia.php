@@ -43,12 +43,12 @@
               while ($row = mysqli_fetch_assoc($result)) {
                   $imagem = $row["imagem"];
 
-                  echo '<div onclick="aparecer1()" id="ftt"><img class="ftperfil" src="data:image/jpg;base64, ' . base64_encode($imagem) . '" /></div>
+                  echo '<div onclick="aparecer1()" id="ftt"><img class="ftperfil" src="../../../img/hamburguer.png" /></div>
                   ';
                   echo '<fieldset id="perfil">  
                       <div class="mudar">
-                        <a href="./paginas/html/login.php" class="link">mudar de conta</a>
-                        <a href="./paginas/html/logout.php" class="deslogar"><img id="img-logout" src="../../../img/logout.png" width="100%" ></a>
+                        <a href="../../html/login.php" class="link">mudar de conta</a>
+                        <a href="../../html/logout.php" class="deslogar"><img id="img-logout" src="../../../img/logout.png" width="100%" ></a>
                       </div>
                     </fieldset>';
               }
@@ -70,21 +70,44 @@
               while ($row = mysqli_fetch_assoc($result)) {
                   $imagem = $row["imagem"];
 
-                  echo '<div id="ftt" onclick="aparecer1()"><img class="ftperfil" id="ftt2" src="data:image/jpg;base64, ' . base64_encode($imagem) . '" /></div>
+                  echo '<div onclick="aparecer1()" id="ftt"><img class="ftperfil" src="../../../img/hamburguer.png" /></div>
                   ';
                   echo '<fieldset id="perfil">
                       <div class="mudar">
-                        <hr class="linha2">
+                        <hr class="linha1">
+                        <hr class="linha11">
                         <h3>Opções da conta</h3>
-                        <a href="./paginas/html/login.php" id="link">mudar de conta</a><br>
-                        <a href="./paginas/html/logout.php" class="deslogar"><img id="img-logout" legend="Deslogar" src="../../../img/logout.png" width="30%" ></a>
+                        <div  id="ftt1"><img class="ftperfil1" src="data:image/jpg;base64, ' . base64_encode($imagem) . '" /></div>
+                        <a href="../../html/login.php" id="link_conta">mudar de conta</a><br>
+                        <a href="../../html/logout.php" class="deslogar"><img id="img-logout" legend="Deslogar" src="../../../img/logout.png" width="30%" ></a>
                         <hr class="linha2">
+                        <a href="./paginas/html/login.php" id="link">HISTORIA</a><br>
+                        <a href="./paginas/paginas_menu/paginas/geografia.php" id="link">GEOGRAFIA</a><br>
+                        <a href="./paginas/html/login.php" id="link"class="socio">SOCIOLOGIA</a><br>
+                        <a href="./paginas/html/login.php" id="link">FILOSOFIA</a><br>
+                        <a href="./paginas/html/login.php" id="link">QUIMICA</a><br>
+                        <a href="./paginas/html/login.php" id="link">FISICA</a><br>
+                        <a href="./paginas/html/login.php" id="link">BIOLOGIA</a><br>
+                        <a href="./paginas/html/login.php" id="link">PORTUGUES</a><br>
+                        <a href="./paginas/html/login.php" id="link">ESPANHOL</a><br>
+                        <a href="./paginas/html/login.php" id="link">INGLES</a><br>
+                        <a href="./paginas/html/login.php" id="link">ED.FISICXA</a><br>
+                        <a href="./paginas/html/login.php" id="link">ARTE</a><br>
+                        <a href="./paginas/html/login.php" id="link">ALGEBRA</a><br>
+                        <a href="./paginas/html/login.php" id="link">GEOMETRIA</a><br>
+                        
+                        <hr class="linha3">
+                        <h3 class="h3">REDAÇÃO</h3>
+                        <a href="./paginas/html/login.php" id="link">REDAÇÃO</a><br>
+                        <a href="./paginas/html/login.php" id="link">TEMA REDAÇÃO</a><br>
+                        <hr class="linha4">
+
                       </div>
                     </fieldset>';
                     echo "
                     <div class='tudo'>
                       <button onclick='mostraMenu2()' id='btn_adicionar'><img src='../../../img/add.svg' id='img_adicionar'></button></a>
-                      <a href='./paginas/html/exibir_registros.php'><button id='contas_btn'><img src='../../../img/contas.png' id='contas_img'></button></a>
+                      <a href='../../html/exibir_registros.php'><button id='contas_btn'><img src='../../../img/contas.png' id='contas_img'></button></a>
                       <fieldset id='meuMenu'>
                           <h2>ADICIONE O CONTEUDO</h2><br>
                           <div class='formulario'>
@@ -96,7 +119,7 @@
                               <label for='arquivo'><img src='../../../img/adicionar-botao.png' class='add'></label>
                               <p class='texto'>Adicionar Imagem</p>
                               <input type='file' name='imagem' id='arquivo'><br>
-                              <input type='submit' value='ADICIONAR' class='btn'><br><br>
+                              <input type='submit' value='ADICIONAR' class='btn' onclick='adicionar()'><br><br>
                             </form>
                           </div>
                       </fieldset>
@@ -131,7 +154,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>EstudaEnem</title>
-    <link rel="stylesheet" href="../css/paginas.css">
+    <link rel="stylesheet" href="../../../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,7 +169,7 @@
         </div>
       </div>
       <div class="slrmane">
-        <h6>Aqui você verá os conteúdos que já cairam no Enem!</h6>
+        <h6>GEOGRAFIA</h6>
       </div>
       <div class="menu">
         <ul>
@@ -154,133 +177,164 @@
         </ul>
       </div>
     </header>
-    <?php // Iniciar a sessão
+      <nav class="dp-menu">
+        <ul class="ul1">
+          <li><a id="conteudo" href="" class="humanas">Humanas</a>
+            <ul>
+              <li><a id="dp-c" href="./paginas/paginas_menu/paginas/historia.php">História</a></li>
+              <li><a id="dp-c" href="./paginas/paginas_menu/paginas/geografia.php">Geografia</a></li>
+              <li><a id="dp-c" href="./paginas/paginas_menu/paginas/filosofia.php">Filosofia</a></li>
+              <li><a id="dp-c" href="./paginas/paginas_menu/paginas/sociologia.php">Sociologia</a></li>
+            </ul>
+          <li><a id="conteudo" href="" class="natureza">Natureza</a>
+            <ul>
+              <li><a id="dp-c" href="paginas_menu/htmls/quimica.php">Quimica</a></li>
+              <li><a id="dp-c" href="paginas_menu/htmls/fisica.php">Fisica</a></li>
+              <li><a id="dp-c" href="paginas_menu/htmls/biologia.php">Biologia</a></li>
+            </ul>
+          <li><a id="conteudo" href="" class="linguagens">Linguagens</a>
+            <ul>
+              <li><a id="dp-c" href="paginas_menu/htmls/EDfisica.php">ED.Fisica</a></li>
+              <li><a id="dp-c" href="paginas_menu/htmls/portugues.php">Português</a></li>
+              <li><a id="dp-c" href="paginas_menu/htmls/artes.php">Artes</a></li>
+              <li><a id="dp-c" href="paginas_menu/htmls/ingles.php">Ingles</a>
+              <li><a id="dp-c" href="paginas_menu/htmls/espanhol.php">Espanhol</a>
+              </li>
+            </ul>
+            <li><a id="conteudo" href="" class="linguagens">Matemática</a>
+            <ul>
+              <li><a id="dp-c" href="paginas_menu/htmls/ingles.php">Algebra</a>
+              <li><a id="dp-c" href="paginas_menu/htmls/espanhol.php">Geometria</a>
+              </li>
+            </ul>
+          <li><a id="conteudo" href="https://ead.ucs.br/blog/temas-de-redacao-para-enem" class="temas">Tema de redações</a></li>
+          <li><a id="conteudo" href="https://guiadoestudante.abril.com.br/enem/prepare-se-para-o-enem-refazendo-provas-anteriores/" class="redacoes">Redações</a></li>
+          </li>
+        </ul>
+      </nav>
+      <?php // Iniciar a sessão
 
 // Verificar se o login foi feito por um administrador
-      if (isset($_SESSION['email'])) {
-        $adminEmail = $_SESSION['email'];
+if (isset($_SESSION['email'])) {
+  $adminEmail = $_SESSION['email'];
 
-        // Conexão com o banco de dados (substitua os valores pelos seus próprios)
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "estudaenem";
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-        if (!$conn) {
-          die("Falha na conexão: " . mysqli_connect_error());
-        }
+  // Conexão com o banco de dados (substitua os valores pelos seus próprios)
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "estudaenem";
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  if (!$conn) {
+    die("Falha na conexão: " . mysqli_connect_error());
+  }
 
-        // Verificar se o usuário é um administrador
-        $query = "SELECT * FROM conta2 WHERE email = '$adminEmail'";
-        $result = mysqli_query($conn, $query);
-        if (!$result) {
+  // Verificar se o usuário é um administrador
+  $query = "SELECT * FROM conta2 WHERE email = '$adminEmail'";
+  $result = mysqli_query($conn, $query);
+  if (!$result) {
+    die('Erro na consulta SQL: ' . mysqli_error($conn));
+  }
+
+  if (mysqli_num_rows($result) > 0) {
+    // Usuário é um administrador, exibir os posts com os botões de editar e apagar
+    $sql = "SELECT * FROM geografia";
+    $result = mysqli_query($conn, $sql);
+    if (!$result) {
+      die('Erro na consulta SQL: ' . mysqli_error($conn));
+    }
+
+    if (mysqli_num_rows($result) > 0) {
+      while($row = mysqli_fetch_assoc($result)) {
+        // Exibir a imagem
+        $sql = mysqli_query($conn, "SELECT imagem FROM geografia");
+        if (!$sql) {
           die('Erro na consulta SQL: ' . mysqli_error($conn));
         }
+        $imagem = $row["imagem"];
 
-        if (mysqli_num_rows($result) > 0) {
-          // Usuário é um administrador, exibir os posts com os botões de editar e apagar
-          $sql = "SELECT * FROM geografia";
-          $result = mysqli_query($conn, $sql);
-          if (!$result) {
-            die('Erro na consulta SQL: ' . mysqli_error($conn));
-          }
-
-          if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
-              // Exibir a imagem
-              $sql = mysqli_query($conn, "SELECT imagem FROM geografia");
-              if (!$sql) {
-                die('Erro na consulta SQL: ' . mysqli_error($conn));
-              }
-              $imagem = $row["imagem"];
-
-              echo "<form action='../editar_pg/edt_geografia.php' method='post' style='display:inline;'>"; // Adicionar o formulário de edição
-              echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
-              echo "<input type='submit' value='Editar' class='editarcont'>";
-              echo "</form>";
-              echo "<form action='' method='post' style='display:inline;'>"; // Adicionar o formulário de exclusão
-              echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
-              echo "<button class='apagarcont' type='submit' name='apagar' onclick='apagar()' >Apagar</button>";
-              echo "</form>";
-              echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
-              echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
-              echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
-              echo "<hr class='linhaa'>";
-            }
-          } else {
-            echo 'Não há posts a serem exibidos.';
-          }
-        } else {
-          // Exibir todos os posts sem os botões de editar e apagar
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "estudaenem";
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-        if (!$conn) {
-          die("Falha na conexão: " . mysqli_connect_error());
-        }
-
-        $sql = "SELECT * FROM geografia";
-        $result = mysqli_query($conn, $sql);
-        if (!$result) {
-          die('Erro na consulta SQL: ' . mysqli_error($conn));
-        }
-
-        if (mysqli_num_rows($result) > 0) {
-          while($row = mysqli_fetch_assoc($result)) {
-            // Exibir a imagem
-            $sql = mysqli_query($conn, "SELECT imagem FROM geografia");
-            if (!$sql) {
-              die('Erro na consulta SQL: ' . mysqli_error($conn));
-            }
-            $imagem = $row["imagem"];
-
-            echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
-            echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
-            echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
-            echo "<hr class='linhaa'>";
-          }
-        } else {
-          echo 'Não há posts a serem exibidos.';
-        }
-
-        mysqli_close($conn); // fechar a conexão com o banco de dados
-        }
-
+        echo "<form action='../editar_pg/edt_geografia.php' method='post' style='display:inline;'>"; // Adicionar o formulário de edição
+        echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
+        echo "<input type='submit' value='Editar' class='editarcont'>";
+        echo "</form>";
+        echo "<form action='' method='post' style='display:inline;'>"; // Adicionar o formulário de exclusão
+        echo "<input type='hidden' name='id' value='" . $row["id"] . "'>"; // Enviar o ID do post como um campo oculto
+        echo "<button class='apagarcont' type='submit' onclick='adicionar1()' name='apagar'>Apagar</button>";
+        echo "</form>";
+        echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
+        echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
+        echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
+        echo "<hr class='linhaa'>";
       }
+    } else {
+      echo 'Não há posts a serem exibidos.';
+    }
+  } else {
+    // Exibir todos os posts sem os botões de editar e apagar
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "estudaenem";
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  if (!$conn) {
+    die("Falha na conexão: " . mysqli_connect_error());
+  }
 
-      if (isset($_POST['apagar'])) {
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "estudaenem";
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-        if (!$conn) {
-          die("Falha na conexão: " . mysqli_connect_error());
-        }
+  $sql = "SELECT * FROM historia";
+  $result = mysqli_query($conn, $sql);
+  if (!$result) {
+    die('Erro na consulta SQL: ' . mysqli_error($conn));
+  }
 
-        // Verificar se o ID do post foi recebido
-        if(isset($_POST['id'])) {
-          $id = $_POST['id'];
-
-          // Executar a exclusão do post no banco de dados
-          $sql = "DELETE FROM geografia WHERE id = $id";
-          $result = mysqli_query($conn, $sql);
-          if ($result) {
-            echo "<script>
-              alert('post apagado com sucesso, recarregue a pagina para realizar as alterações');
-            </script>";
-          } else {
-            echo "Erro ao excluir o post: " . mysqli_error($conn);
-          }
-        }
-
-        mysqli_close($conn);
+  if (mysqli_num_rows($result) > 0) {
+    while($row = mysqli_fetch_assoc($result)) {
+      // Exibir a imagem
+      $sql = mysqli_query($conn, "SELECT imagem FROM geografia");
+      if (!$sql) {
+        die('Erro na consulta SQL: ' . mysqli_error($conn));
       }
-    ?>
+      $imagem = $row["imagem"];
+
+      echo "<h1>" . $row["titulo"] . "  -  " . $row["subtitulo"] . ":</h1>";
+      echo "<div class='slrboy'>" . $row["conteudo"] . "</div>";
+      echo '<img class="imagem_conteudo" src="data:image/jpg;base64, '. base64_encode($imagem) . '" />'; 
+      echo "<hr class='linhaa'>";
+    }
+  } else {
+    echo 'Não há posts a serem exibidos.';
+  }
+
+  mysqli_close($conn); // fechar a conexão com o banco de dados
+  }
+
+}
+
+if (isset($_POST['apagar'])) {
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "estudaenem";
+  $conn = mysqli_connect($servername, $username, $password, $dbname);
+  if (!$conn) {
+    die("Falha na conexão: " . mysqli_connect_error());
+  }
+
+  // Verificar se o ID do post foi recebido
+  if(isset($_POST['id'])) {
+    $id = $_POST['id'];
+
+    // Executar a exclusão do post no banco de dados
+    $sql = "DELETE FROM geografia WHERE id = $id";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+    } else {
+      echo "Erro ao excluir o post: " . mysqli_error($conn);
+    }
+  }
+
+  mysqli_close($conn);
+}
+?>
     <script src="../../../js/script.js"></script>
-    <script src="../../../js/teste.js"></script>
   </body>
   <footer>
       <h4>ESTUDAENEM</h4>

@@ -50,9 +50,17 @@ function aparecer1() {
 }
 
 function apagar(){
-    alert("conteudo apagado com sucesso");
+    alert("conteudo apagado com sucesso, atualize a pagina para concluir as alterações");
 }
 
 function editar(){
     alert("conteudo editado com sucesso");
+}
+
+function adicionar(){
+    alert("conteudo adicionado com sucesso");
+}
+
+function adicionar1(){
+    alert("conteudo apagado com sucesso, atualize a pagina para concluir as alterações");
 }
